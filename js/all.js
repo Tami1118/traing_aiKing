@@ -24,7 +24,6 @@ const services = [
   },
 ]
 
-
 const partner = {
   starIcon: `<svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path d="M7.00004 10.5134L11.12 13L10.0267 8.31337L13.6667 5.16004L8.87337 4.75337L7.00004 0.333374L5.12671 4.75337L0.333374 5.16004L3.97337 8.31337L2.88004 13L7.00004 10.5134Z" fill="white"/>
@@ -145,23 +144,23 @@ const pricePlan = [
 const fqas = [
   {
     title: '如何選擇合適的AI模型？',
-    content: '選擇適合的AI模型需要考慮您的應用場景、需要解決的問題、可用的資源以及預算等因素。可以通過對比不同模型的性能、準確率、速度等指標，以及與其他用戶的評價和反饋，來選擇最適合的模型。',
+    answer: '選擇適合的AI模型需要考慮您的應用場景、需要解決的問題、可用的資源以及預算等因素。可以通過對比不同模型的性能、準確率、速度等指標，以及與其他用戶的評價和反饋，來選擇最適合的模型。',
   },
   {
     title: '租用模型的費用是如何計算的？',
-    content: '租用模型的費用通常會根據模型的性能和使用時間等因素進行計算。具體而言，模型的性能可以根據其精度、速度、佔用資源等指標來評估；而使用時間可以根據租用時機的長短來計算，通常會按小時、天或月來計算。綜合考慮這些因素，系統會自動計算出對應的租用費用。',
+    answer: '租用模型的費用通常會根據模型的性能和使用時間等因素進行計算。具體而言，模型的性能可以根據其精度、速度、佔用資源等指標來評估；而使用時間可以根據租用時機的長短來計算，通常會按小時、天或月來計算。綜合考慮這些因素，系統會自動計算出對應的租用費用。',
   },
   {
     title: '如何進行付款？',
-    content: '付款方式可以通過網站上提供的線上支付平台進行支付。具體而言，您可以選擇使用信用卡、銀行轉帳、電子錢包等不同的支付方式進行支付。在支付前，您需要先登錄網站並選擇適合的租用方案，系統會自動計算出對應的租用費用和支付金額，然後您可以選擇合適的支付方式進行支付。完成支付後，系統會自動向您提供相應的服務。',
+    answer: '付款方式可以通過網站上提供的線上支付平台進行支付。具體而言，您可以選擇使用信用卡、銀行轉帳、電子錢包等不同的支付方式進行支付。在支付前，您需要先登錄網站並選擇適合的租用方案，系統會自動計算出對應的租用費用和支付金額，然後您可以選擇合適的支付方式進行支付。完成支付後，系統會自動向您提供相應的服務。',
   },
   {
     title: '租用模型的期限是多久？',
-    content: '租用模型的期限可以根據您的需求進行設置，通常可以選擇幾個小時、幾天或幾個月等不同的時間段。',
+    answer: '租用模型的期限可以根據您的需求進行設置，通常可以選擇幾個小時、幾天或幾個月等不同的時間段。',
   },
   {
     title: '如果在使用過程中遇到問題，應該怎麼處理？',
-    content: '如果在使用過程中遇到問題，您可以聯繫客服或技術支持人員進行諮詢或報告問題。您也可以通過網站上的幫助中心或社區論壇尋找相關的解決方案和回答。',
+    answer: '如果在使用過程中遇到問題，您可以聯繫客服或技術支持人員進行諮詢或報告問題。您也可以通過網站上的幫助中心或社區論壇尋找相關的解決方案和回答。',
   },
 ]
 
@@ -174,19 +173,35 @@ createApp({
       tools,
       pricePlan,
       fqas,
+      works: []
     }
   },
+
+  mounted() {
+    this.getData()
+  },
+
+  methods: {
+    getData(){
+      axios.get('https://2023-engineer-camp.zeabur.app/api/v1/works').then(res => {
+        console.log(res)
+        // console.log(res.data.ai_works.data)
+        this.works=res.data.ai_works.data
+      })
+    }
+  }
 }).mount('#app')
 
-// const getTool = () => {
-//   const url = 'https://2023-engineer-camp.zeabur.app/api/v1/works'
-//   axios.get(url).then(res => {
-//     console.log(res)
-//   })
-// }
 
-// getTool()
+// jQuery
+// menu
+$('button.header_sm').click(function(e){
+  $('.header_nav').toggleClass('show')
+  $(this).find('.menu_icon').toggleClass('hide')
+  $(this).find('.close_icon').toggleClass('show')
+})
 
+// back to top
 $(".back_btn").click(function (e) {
   e.preventDefault();
   $("html,body").animate(
@@ -196,3 +211,12 @@ $(".back_btn").click(function (e) {
     600
   );
 });
+
+// fqa
+$('.fqa_item').click(function(e){
+  e.preventDefault()
+  $(this).toggleClass('active')
+  $(this).find('.add_icon').toggleClass('d_none')
+  $(this).find('.remove_icon').toggleClass('d_block')
+  $(this).find('.fqa_question p').slideToggle('fast')
+})

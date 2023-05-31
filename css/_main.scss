@@ -45,11 +45,17 @@ a {
   color: #fff;
 }
 
-h1, h2, h3, h4, button {
+h1,
+h2,
+h3,
+h4,
+button {
   line-height: 1.2;
 }
 
-p, span,a {
+p,
+span,
+a {
   line-height: 1.5;
 }
 
@@ -151,6 +157,10 @@ p, span,a {
 
 // ===========================
 
+.container {
+  position: relative
+}
+
 
 // header
 .header .wrap {
@@ -160,32 +170,87 @@ p, span,a {
   border-bottom: .5px solid $white;
 }
 
-.header_menu {
-  li~li {
-    margin-left: $size_5;
+.header_logo{
+  &_lg svg:first-child{
+    margin-right: 13px;
   }
+  &_sm svg:first-child{
+    margin-right: 8px;
+  }
+  &_sm{
+    display: none;
+  }
+}
 
-  button {
+.header{
+  &_btn{
+    display: none;
     border: none;
     background: transparent;
   }
+  &_nav{
+    display: none;
+    position: absolute;
+    top: 83px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: $black;
+    margin: auto;
+    z-index: 1;
+  }
+}
+.header_menu li~li{
+  margin-left: $size_5;
 }
 
-.header_sm {
+
+.header_nav {
+  &>.d_flex {
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+  }
+
+  ul {
+    flex-direction: column;
+    font-size: $fs_d_3;
+  }
+}
+
+.menu_icon.hide {
   display: none;
 }
 
-@media (max-width: 576px) {
-  .header .wrap {
-    padding: 28px 0;
-  }
+.close_icon {
+  display: none;
+}
 
-  .header_md {
-    display: none;
-  }
+.header_nav.show {
+  display: block;
+}
 
-  .header_sm {
-    display: block;
+.close_icon.show {
+  display: block;
+}
+
+
+@media (max-width: 576px){
+  .header{
+    &_menu{
+      display: none;
+    }
+    &_btn{
+      display: block;
+    }
+  }
+  .header_logo{
+    &_lg{
+      display: none;
+    }
+    &_sm{
+      display: block;
+    }
   }
 }
 
@@ -634,4 +699,51 @@ p, span,a {
   .rule_content {
     font-size: $fs_b;
   }
+}
+
+
+// fqa
+.fqa_group li~li {
+  margin-top: $size_6;
+}
+
+.fqa_item {
+  padding: 20px 40px;
+  border-radius: $size-4;
+  border: .5px solid #393939;
+
+  &:hover {
+    border: .5px solid #fff;
+  }
+}
+
+.fqa_item.active {
+  border: .5px solid #fff;
+}
+
+.fqa_question {
+  margin-left: $size_5;
+  font-size: $fs_h_6;
+  text-align: justify;
+}
+
+.fqa_question p {
+  margin-top: 20px;
+  display: none;
+}
+
+.fqa_question p.show {
+  display: block;
+}
+
+.remove_icon {
+  display: none;
+}
+
+.d_none {
+  display: none;
+}
+
+.d_block {
+  display: block;
 }

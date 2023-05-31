@@ -99,11 +99,17 @@ a {
   color: #fff;
 }
 
-h1, h2, h3, h4, button {
+h1,
+h2,
+h3,
+h4,
+button {
   line-height: 1.2;
 }
 
-p, span, a {
+p,
+span,
+a {
   line-height: 1.5;
 }
 
@@ -195,6 +201,10 @@ p, span, a {
     grid-template-columns: repeat(1, 1fr);
   }
 }
+.container {
+  position: relative;
+}
+
 .header .wrap {
   padding: 20px 0;
   justify-content: space-between;
@@ -202,26 +212,74 @@ p, span, a {
   border-bottom: 0.5px solid #ffffff;
 }
 
-.header_menu li ~ li {
-  margin-left: 20px;
+.header_logo_lg svg:first-child {
+  margin-right: 13px;
 }
-.header_menu button {
-  border: none;
-  background: transparent;
+.header_logo_sm svg:first-child {
+  margin-right: 8px;
 }
-
-.header_sm {
+.header_logo_sm {
   display: none;
 }
 
+.header_btn {
+  display: none;
+  border: none;
+  background: transparent;
+}
+.header_nav {
+  display: none;
+  position: absolute;
+  top: 83px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #020202;
+  margin: auto;
+  z-index: 1;
+}
+
+.header_menu li ~ li {
+  margin-left: 20px;
+}
+
+.header_nav > .d_flex {
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.header_nav ul {
+  flex-direction: column;
+  font-size: 80px;
+}
+
+.menu_icon.hide {
+  display: none;
+}
+
+.close_icon {
+  display: none;
+}
+
+.header_nav.show {
+  display: block;
+}
+
+.close_icon.show {
+  display: block;
+}
+
 @media (max-width: 576px) {
-  .header .wrap {
-    padding: 28px 0;
-  }
-  .header_md {
+  .header_menu {
     display: none;
   }
-  .header_sm {
+  .header_btn {
+    display: block;
+  }
+  .header_logo_lg {
+    display: none;
+  }
+  .header_logo_sm {
     display: block;
   }
 }
@@ -598,4 +656,47 @@ p, span, a {
   .rule_content {
     font-size: 16px;
   }
+}
+.fqa_group li ~ li {
+  margin-top: 24px;
+}
+
+.fqa_item {
+  padding: 20px 40px;
+  border-radius: 16px;
+  border: 0.5px solid #393939;
+}
+.fqa_item:hover {
+  border: 0.5px solid #fff;
+}
+
+.fqa_item.active {
+  border: 0.5px solid #fff;
+}
+
+.fqa_question {
+  margin-left: 20px;
+  font-size: 20px;
+  text-align: justify;
+}
+
+.fqa_question p {
+  margin-top: 20px;
+  display: none;
+}
+
+.fqa_question p.show {
+  display: block;
+}
+
+.remove_icon {
+  display: none;
+}
+
+.d_none {
+  display: none;
+}
+
+.d_block {
+  display: block;
 }/*# sourceMappingURL=all.css.map */
