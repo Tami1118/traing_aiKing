@@ -1,0 +1,227 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  font-family: 'Noto Sans TC', sans-serif;
+  background: $black;
+  color: $white;
+}
+
+header .wrap,
+section .wrap,
+footer .wrap {
+  max-width: 1296px;
+  margin: auto;
+}
+
+@media (max-width: 1296px) {
+  header .wrap,
+  section .wrap,
+  footer .wrap {
+    margin: 0 12px;
+  }
+}
+
+img,
+svg,
+button {
+  vertical-align: middle;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+  color: #fff;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+button,
+input {
+  border: none;
+  background: transparent;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+button{
+  line-height: 1.2;
+}
+
+p,
+span,
+a,
+ul,ol,li {
+  line-height: 1.5;
+}
+
+.py20 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.px32 {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.py32 {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+.pt40 {
+  padding-top: 40px;
+}
+
+.pb40 {
+  padding-bottom: 40px;
+}
+
+.px40 {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.p40 {
+  padding: 40px;
+}
+
+.py80 {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.pb160 {
+  padding-bottom: 160px;
+}
+
+.py160 {
+  padding-top: 160px;
+  padding-bottom: 160px;
+}
+
+.mt_auto {
+  margin-top: auto;
+}
+
+.ml_auto {
+  margin-left: auto;
+}
+
+.m_auto {
+  margin: auto;
+}
+
+.mr8 {
+  margin-right: 8px;
+}
+
+.mr12 {
+  margin-right: 12px;
+}
+
+.mb12 {
+  margin-bottom: 12px;
+}
+
+.ml12 {
+  margin-left: 12px;
+}
+
+.mr16{
+  margin-right: 16px;
+}
+
+.mt20 {
+  margin-top: 20px;
+}
+
+.mb20{
+  margin-bottom: 20px;
+}
+
+.ml20{
+  margin-left: 20px;
+}
+
+.my20{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.mr24{
+  margin-right: 24px;
+}
+
+.mb24 {
+  margin-bottom: 24px;
+}
+
+.mb40 {
+  margin-bottom: 40px;
+}
+
+.my40 {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.mb48 {
+  margin-bottom: 48px;
+}
+
+.mt80 {
+  margin-top: 80px;
+}
+
+.mb80 {
+  margin-bottom: 80px;
+}
+
+.mt100 {
+  margin-top: 100px;
+}
+
+.mr100 {
+  margin-right: 100px;
+}
+
+.mb160 {
+  margin-bottom: 160px;
+}
+
+.fw400 {
+  font-weight: 400;
+}
+
+.fw700 {
+  font-weight: 700;
+}
+
+.fw900 {
+  font-weight: 900;
+}
+
+.d_flex {
+  display: flex;
+}
+
+.d_none{
+  display: none;
+}
+
+.d_block{
+  display: block;
+}

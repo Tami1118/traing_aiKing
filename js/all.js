@@ -67,57 +67,6 @@ const partner = {
   ]
 }
 
-const tools = [
-  {
-    imageUrl: "https://github.com/hexschool/2022-web-layout-training/blob/main/2023web-camp/tool1.png?raw=true",
-    title: 'Chatbot Builder',
-    content: '建立智能化的聊天機器人，解答常見問題、提供客戶支援、收集反饋等。',
-    type: 'AI模型',
-    tag: '#聊天',
-    coach: '卡卡'
-  },
-  {
-    imageUrl: "https://github.com/hexschool/2022-web-layout-training/blob/main/2023web-camp/tool2.png?raw=true",
-    title: 'Image Recognition Platform',
-    content: '專業的圖像識別平台，識別圖像、分類、標記等。',
-    type: 'AI模型',
-    tag: '#影像辨識',
-    coach: '杰杰'
-  },
-  {
-    imageUrl: "https://github.com/hexschool/2022-web-layout-training/blob/main/2023web-camp/tool3.png?raw=true",
-    title: 'Language Translation API',
-    content: '專業的語言翻譯 API，實現文本翻譯功能，支援多種格式的文本。',
-    type: 'AI模型',
-    tag: '#翻譯',
-    coach: '琪琪'
-  },
-  {
-    imageUrl: "https://github.com/hexschool/2022-web-layout-training/blob/main/2023web-camp/tool4.png?raw=true",
-    title: 'Sentiment Analysis API',
-    content: '自動識別文本中的情感傾向，包括正向、負向和中性等。適用於情感分析、社交媒體監控、市場調查等。',
-    type: 'AI模型',
-    tag: '#行銷',
-    coach: '昊昊'
-  },
-  {
-    imageUrl: "https://github.com/hexschool/2022-web-layout-training/blob/main/2023web-camp/tool5.png?raw=true",
-    title: 'Fraud Detection Platform',
-    content: '預防詐騙活動，適用於銀行、金融、電商等。',
-    type: 'AI模型',
-    tag: '#客服',
-    coach: '卡卡'
-  },
-  {
-    imageUrl: "https://github.com/hexschool/2022-web-layout-training/blob/main/2023web-camp/tool6.png?raw=true",
-    title: 'Voice Assistant SDK',
-    content: '通過語音控制應用程式、設備，實現多種功能，例如播放音樂、查詢天氣、發送信息等。',
-    type: 'AI模型',
-    tag: '#生產力',
-    coach: '杰杰'
-  },
-]
-
 const pricePlan = [
   {
     name: '琪琪',
@@ -170,10 +119,10 @@ createApp({
     return {
       services,
       partner,
-      tools,
       pricePlan,
       fqas,
-      works: []
+      works: [],
+      page: ''
     }
   },
 
@@ -182,11 +131,12 @@ createApp({
   },
 
   methods: {
-    getData(){
+    getData() {
       axios.get('https://2023-engineer-camp.zeabur.app/api/v1/works').then(res => {
         console.log(res)
-        // console.log(res.data.ai_works.data)
-        this.works=res.data.ai_works.data
+        console.log(res.data.ai_works.data)
+        this.works = res.data.ai_works.data
+        this.page = res.data.ai_works.page
       })
     }
   }
@@ -195,25 +145,60 @@ createApp({
 
 // jQuery
 // menu
-$('button.header_sm').click(function(e){
+$('.header_btn').click(function (e) {
   $('.header_nav').toggleClass('show')
   $(this).find('.menu_icon').toggleClass('hide')
   $(this).find('.close_icon').toggleClass('show')
 })
 
+
+// filter_btn
+$('.filter_btn').click(function (e) {
+  e.preventDefault()
+  $('.filter_menu').toggle()
+})
+
+
+// sort_btn
+$('.sort_btn').click(function (e) {
+  e.preventDefault()
+  $('.sort_menu').toggle()
+})
+
+$('.filter_menu li').click(function (e) {
+  e.preventDefault()
+  $(this).find('span').toggle()
+})
+
+$('.new_to_old').click(function (e) {
+  e.preventDefault()
+  $('.sort_menu').toggle()
+  $('.sort_text').text($('.new_to_old').text())
+})
+
+$('.old_to_new').click(function (e) {
+  e.preventDefault()
+  $('.sort_menu').toggle()
+  $('.sort_text').text($('.old_to_new').text())
+})
+
+
+// category
+$('.category_group li').click(function (e) {
+  e.preventDefault()
+  $(this).toggleClass('active')
+})
+
+
 // back to top
 $(".back_btn").click(function (e) {
   e.preventDefault();
-  $("html,body").animate(
-    {
-      scrollTop: 0,
-    },
-    600
-  );
+  $("html,body").animate({ scrollTop: 0, }, 600);
 });
 
+
 // fqa
-$('.fqa_item').click(function(e){
+$('.fqa_item').click(function (e) {
   e.preventDefault()
   $(this).toggleClass('active')
   $(this).find('.add_icon').toggleClass('d_none')
