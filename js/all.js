@@ -36,14 +36,17 @@ const partner = {
     "https://github.com/hexschool/2022-web-layout-training/blob/main/2023web-camp/enterprise3.png?raw=true",
     "https://github.com/hexschool/2022-web-layout-training/blob/main/2023web-camp/enterprise4.png?raw=true",
     "https://github.com/hexschool/2022-web-layout-training/blob/main/2023web-camp/enterprise5.png?raw=true",
+    "https://github.com/hexschool/2022-web-layout-training/blob/main/2023web-camp/enterprise6.png?raw=true",
+    "https://github.com/hexschool/2022-web-layout-training/blob/main/2023web-camp/enterprise7.png?raw=true",
   ],
   companyDown: [
-    "https://github.com/hexschool/2022-web-layout-training/blob/main/2023web-camp/enterprise7.png?raw=true",
-    "https://github.com/hexschool/2022-web-layout-training/blob/main/2023web-camp/enterprise6.png?raw=true",
     "https://github.com/hexschool/2022-web-layout-training/blob/main/2023web-camp/enterprise8.png?raw=true",
     "https://github.com/hexschool/2022-web-layout-training/blob/main/2023web-camp/enterprise9.png?raw=true",
     "https://github.com/hexschool/2022-web-layout-training/blob/main/2023web-camp/enterprise11.png?raw=true",
     "https://github.com/hexschool/2022-web-layout-training/blob/main/2023web-camp/enterprise12.png?raw=true",
+    "https://github.com/hexschool/2022-web-layout-training/blob/main/2023web-camp/enterprise2.png?raw=true",
+    "https://github.com/hexschool/2022-web-layout-training/blob/main/2023web-camp/enterprise3.png?raw=true",
+    "https://github.com/hexschool/2022-web-layout-training/blob/main/2023web-camp/enterprise1.png?raw=true",
   ],
   comments: [
     {
@@ -113,7 +116,6 @@ const fqas = [
   },
 ]
 
-
 createApp({
   data() {
     return {
@@ -133,14 +135,39 @@ createApp({
   methods: {
     getData() {
       axios.get('https://2023-engineer-camp.zeabur.app/api/v1/works').then(res => {
-        console.log(res)
-        console.log(res.data.ai_works.data)
+        // console.log(res)
+        // console.log(res.data.ai_works.data)
         this.works = res.data.ai_works.data
         this.page = res.data.ai_works.page
       })
     }
   }
 }).mount('#app')
+
+
+// Swiper
+const swiper = new Swiper('.swiper', {
+  slidesPerView: 1,
+  spaceBetween: 24,
+  breakpoints: {
+    576: {
+      slidesPerView: 1,
+      slidesPerGroup: 1,
+    },
+    768: {
+      slidesPerView: 2,
+      slidesPerGroup: 2,
+    },
+    1200: {
+      slidesPerView: 3,
+      slidesPerGroup: 3,
+    },
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+});
 
 
 // jQuery
