@@ -381,10 +381,7 @@ ul, ol, li {
   font-size: 80px;
 }
 
-.menu_icon.hide {
-  display: none;
-}
-
+.menu_icon.hide,
 .close_icon {
   display: none;
 }
@@ -402,9 +399,7 @@ ul, ol, li {
   .header_logo_sm {
     display: block;
   }
-  .header_nav.show {
-    display: block;
-  }
+  .header_nav.show,
   .close_icon.show {
     display: block;
   }
@@ -457,9 +452,9 @@ ul, ol, li {
     font-size: 48px;
   }
   .banner_slogan {
+    margin-top: 64px;
     width: 257px;
     font-size: 28px;
-    margin-top: 64px;
   }
   .arrow {
     width: 117px;
@@ -740,10 +735,10 @@ ul, ol, li {
 .page_list > li ~ li {
   margin-left: 8px;
 }
-.page_list .active {
+.page_list.active {
   background: #020202;
 }
-.page_list .active > a {
+.page_list.active > a {
   color: #ffffff;
 }
 
@@ -760,8 +755,6 @@ ul, ol, li {
 }
 .start_content {
   text-align: center;
-}
-.start_content {
   font-size: 48px;
 }
 

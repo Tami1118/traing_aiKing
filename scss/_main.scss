@@ -77,8 +77,8 @@
 }
 
 .header {
-  &_logo{
-    &>span{
+  &_logo {
+    &>span {
       width: 1px;
       height: 1px;
       overflow: hidden;
@@ -111,12 +111,10 @@
       }
     }
   }
+
 }
 
-.menu_icon.hide {
-  display: none;
-}
-
+.menu_icon.hide,
 .close_icon {
   display: none;
 }
@@ -142,10 +140,7 @@
     }
   }
 
-  .header_nav.show {
-    display: block;
-  }
-
+  .header_nav.show,
   .close_icon.show {
     display: block;
   }
@@ -217,9 +212,9 @@
     }
 
     &_slogan {
+      margin-top: 64px;
       width: 257px;
       font-size: $fs_h_4;
-      margin-top: 64px;
     }
   }
 
@@ -279,6 +274,7 @@
   &_group {
     position: relative;
     justify-content: center;
+
     overflow-x: scroll;
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
@@ -558,7 +554,7 @@
     margin-left: $size_2;
   }
 
-  .active {
+  &.active {
     background: $black;
 
     &>a {
@@ -586,15 +582,11 @@
 .start {
   &_content {
     text-align: center;
-  }
-
-  &_content {
     font-size: $fs_h_1;
   }
 }
 
 @media (max-width:576px) {
-
   .start_title,
   .tool_title {
     font-size: $fs_h_3;
@@ -629,7 +621,8 @@
   background-color: $black;
   font-size: $size_4;
   color: $white;
-  &:hover{
+
+  &:hover {
     color: $primary;
   }
 }
