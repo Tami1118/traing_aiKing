@@ -38,11 +38,11 @@ img {
 }
 
 a {
-  text-decoration: none;
   display: block;
+  text-decoration: none;
+  cursor: pointer;
   color: #fff;
   font-family: "Noto Sans TC", sans-serif;
-  cursor: pointer;
 }
 
 button,

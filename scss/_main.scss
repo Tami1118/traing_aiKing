@@ -77,6 +77,15 @@
 }
 
 .header {
+  &_logo{
+    &>span{
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      display: block;
+    }
+  }
+
   &_menu li~li {
     margin-left: $size_5;
   }

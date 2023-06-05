@@ -94,11 +94,11 @@ img {
 }
 
 a {
-  text-decoration: none;
   display: block;
+  text-decoration: none;
+  cursor: pointer;
   color: #fff;
   font-family: "Noto Sans TC", sans-serif;
-  cursor: pointer;
 }
 
 button,
@@ -349,6 +349,12 @@ ul, ol, li {
   border-bottom: 0.5px solid #ffffff;
 }
 
+.header_logo > span {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  display: block;
+}
 .header_menu li ~ li {
   margin-left: 20px;
 }
