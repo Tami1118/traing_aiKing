@@ -97,8 +97,11 @@ a {
   display: block;
   text-decoration: none;
   cursor: pointer;
-  color: #fff;
+  color: #ffffff;
   font-family: "Noto Sans TC", sans-serif;
+}
+a:hover {
+  color: #f18724;
 }
 
 button,
@@ -293,8 +296,8 @@ ul, ol, li {
   color: #ffffff;
 }
 .main_btn:hover {
-  color: #020202;
-  background: #ffffff;
+  background: #f18724;
+  border: 0.5px solid #f18724;
 }
 .main_btn > svg {
   margin-left: 16px;
@@ -790,6 +793,9 @@ ul, ol, li {
   background-color: #020202;
   font-size: 16px;
   color: #ffffff;
+}
+.back_btn:hover {
+  color: #f18724;
 }
 
 @media (max-width: 610px) {

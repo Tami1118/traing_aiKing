@@ -41,8 +41,11 @@ a {
   display: block;
   text-decoration: none;
   cursor: pointer;
-  color: #fff;
+  color: $white;
   font-family: "Noto Sans TC", sans-serif;
+  &:hover{
+    color: $primary;
+  }
 }
 
 button,

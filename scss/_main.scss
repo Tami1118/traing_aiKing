@@ -8,8 +8,8 @@
   color: $white;
 
   &:hover {
-    color: $black;
-    background: $white;
+    background: $primary;
+    border: .5px solid $primary;
   }
 
   &>svg {
@@ -629,6 +629,9 @@
   background-color: $black;
   font-size: $size_4;
   color: $white;
+  &:hover{
+    color: $primary;
+  }
 }
 
 @media (max-width: 610px) {
